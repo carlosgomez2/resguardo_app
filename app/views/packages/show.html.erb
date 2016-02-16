@@ -36,4 +36,5 @@
 </p>
 
 <%= link_to 'Edit', edit_package_path(@package) %> |
-<%= link_to 'Back', client_packages_path(:client_id => :client) %>
+<%= link_to 'Back', client_packages_path(:client_id => :client) %> | 
+<%= link_to 'Download PDF',  package_path(@package.id, format: "pdf") %>

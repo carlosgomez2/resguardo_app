@@ -3,6 +3,8 @@ class PackagesController < ApplicationController
   before_action :set_package, only: [:show, :edit, :update, :destroy]
   before_action :set_client
 
+  # respond_to :html
+
   # GET /packages
   # GET /packages.json
   def index
@@ -12,6 +14,15 @@ class PackagesController < ApplicationController
   # GET /packages/1
   # GET /packages/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        c = Client.find_by_id(params[:id])
+        pdf = PackagePdf.new(@package, c)
+        client = c.first_name + "_" + c.last_name + "_" + c.second_last_name
+        send_data pdf.render, filename: "Package_client_#{client}.pdf", disposition: 'inline'
+      end
+    end
   end
 
   # GET /packages/new
@@ -27,6 +38,7 @@ class PackagesController < ApplicationController
   # POST /packages.json
   def create
     @package = @client.packages.new(package_params)
+
 
     respond_to do |format|
       if @package.save
