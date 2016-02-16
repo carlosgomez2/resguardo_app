@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @client.first_name %>
+</p>
+
+<p>
+  <strong>Second name:</strong>
+  <%= @client.second_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @client.last_name %>
+</p>
+
+<p>
+  <strong>Second last name:</strong>
+  <%= @client.second_last_name %>
+</p>
+
+<p>
+  <strong>Principal phone:</strong>
+  <%= @client.principal_phone %>
+</p>
+
+<p>
+  <strong>Cellphone:</strong>
+  <%= @client.cellphone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @client.email %>
+</p>
+
+<p>
+  <strong>Birth:</strong>
+  <%= @client.birth %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @client.address %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @client.postal_code %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @client.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @client.state %>
+</p>
+
+<p>
+  <strong>Emergency contact full name:</strong>
+  <%= @client.emergency_contact_full_name %>
+</p>
+
+<p>
+  <strong>Emergency contact address:</strong>
+  <%= @client.emergency_contact_address %>
+</p>
+
+<p>
+  <strong>Emergency contact phone:</strong>
+  <%= @client.emergency_contact_phone %>
+</p>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>

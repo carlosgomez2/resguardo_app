@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Package dimentions:</strong>
+  <%= @package.package_dimentions %>
+</p>
+
+<p>
+  <strong>Package weight:</strong>
+  <%= @package.package_weight %>
+</p>
+
+<p>
+  <strong>Safeguard time:</strong>
+  <%= @package.safeguard_time %>
+</p>
+
+<p>
+  <strong>Outbound packet time:</strong>
+  <%= @package.outbound_packet_time %>
+</p>
+
+<p>
+  <strong>Entry packet time:</strong>
+  <%= @package.entry_packet_time %>
+</p>
+
+<p>
+  <strong>Batch number:</strong>
+  <%= @package.batch_number %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @package.client %>
+</p>
+
+<%= link_to 'Edit', edit_package_path(@package) %> |
+<%= link_to 'Back', packages_path %>

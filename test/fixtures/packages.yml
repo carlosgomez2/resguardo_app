@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  package_dimentions: MyString
+  package_weight: MyString
+  safeguard_time: MyString
+  outbound_packet_time: MyString
+  entry_packet_time: MyString
+  batch_number: MyString
+  client_id: 
+
+two:
+  package_dimentions: MyString
+  package_weight: MyString
+  safeguard_time: MyString
+  outbound_packet_time: MyString
+  entry_packet_time: MyString
+  batch_number: MyString
+  client_id: 

@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Clients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Second name</th>
+      <th>Last name</th>
+      <th>Second last name</th>
+      <th>Principal phone</th>
+      <th>Cellphone</th>
+      <th>Email</th>
+      <th>Birth</th>
+      <th>Address</th>
+      <th>Postal code</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Emergency contact full name</th>
+      <th>Emergency contact address</th>
+      <th>Emergency contact phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.first_name %></td>
+        <td><%= client.second_name %></td>
+        <td><%= client.last_name %></td>
+        <td><%= client.second_last_name %></td>
+        <td><%= client.principal_phone %></td>
+        <td><%= client.cellphone %></td>
+        <td><%= client.email %></td>
+        <td><%= client.birth %></td>
+        <td><%= client.address %></td>
+        <td><%= client.postal_code %></td>
+        <td><%= client.city %></td>
+        <td><%= client.state %></td>
+        <td><%= client.emergency_contact_full_name %></td>
+        <td><%= client.emergency_contact_address %></td>
+        <td><%= client.emergency_contact_phone %></td>
+        <td><%= link_to 'Show', client %></td>
+        <td><%= link_to 'Edit', edit_client_path(client) %></td>
+        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Client', new_client_path %>
