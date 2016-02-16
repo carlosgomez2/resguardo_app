@@ -1,5 +1,7 @@
 class PackagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_package, only: [:show, :edit, :update, :destroy]
+  before_action :set_client
 
   # GET /packages
   # GET /packages.json
@@ -14,7 +16,7 @@ class PackagesController < ApplicationController
 
   # GET /packages/new
   def new
-    @package = Package.new
+    @package = @client.packages.new
   end
 
   # GET /packages/1/edit
@@ -24,7 +26,7 @@ class PackagesController < ApplicationController
   # POST /packages
   # POST /packages.json
   def create
-    @package = Package.new(package_params)
+    @package = @client.packages.new(package_params)
 
     respond_to do |format|
       if @package.save
@@ -65,6 +67,10 @@ class PackagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_package
       @package = Package.find(params[:id])
+    end
+
+    def set_client
+      @client = Client.find_by_id(params[:client_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
