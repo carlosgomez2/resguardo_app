@@ -11,11 +11,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# GEMS
+# GEMS ADDED
 gem 'devise'
 gem 'barby'
 gem 'prawn-rails'
 gem 'puma'
+# STYLES GEMS
+
 
 group :development, :test do
   gem 'byebug'
