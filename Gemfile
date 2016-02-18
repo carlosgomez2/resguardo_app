@@ -17,7 +17,9 @@ gem 'barby'
 gem 'prawn-rails'
 gem 'puma'
 # STYLES GEMS
-
+gem 'bootstrap-sass', '~> 3.3.6'
+# gem 'sass-rails', '>= 3.2'
+gem 'bootswatch-rails'
 
 group :development, :test do
   gem 'byebug'
