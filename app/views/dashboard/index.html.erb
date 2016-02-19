@@ -1,4 +1,22 @@
-<h1>Hello world! app dashboard</h1>
-
-<%= link_to "Ingresar cliente", new_client_path %>
-<%= link_to "Ver clientes", clients_path %>
+<div class="container">
+  <h1 class="text-center">Panel de control</h1>
+  <hr />
+  <br />
+  <br />
+  <ul class="ul_clean">
+    <h4>
+      Ingrese un nuevo cliente al sistema
+    </h4>
+    <li>
+      <%= link_to "Ingresar cliente", new_client_path, :class => "btn btn-success btn-lg btn-block" %>
+    </li>
+    <br />
+    <h4>
+      Vea los clientes que se han ingresado en el sistema
+    </h4>
+    <li>
+      <%= link_to "Ver clientes", clients_path, :class => "btn btn-primary btn-lg btn-block" %>
+    </li>
+  </ul>
+  <br />
+</div>

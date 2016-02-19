@@ -1,6 +1,10 @@
-<h1>Editing Client</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
+<div class="container">
+  <h1 class="text-center">Editar cliente</h1>
+  <hr />
+  <%= render 'form' %>
+  <br />
+  <div class="btn-group btn-group-justified">
+    <%= link_to 'Regresar a clientes ingresados', clients_path, :class => "btn btn-default" %>
+    <%= link_to 'Ir a vista del cliente', @client, :class => "btn btn-primary" %>
+  </div>
+</div>

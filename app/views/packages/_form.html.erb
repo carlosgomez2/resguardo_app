@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :package_weight %><br>
-    <%= f.text_field :package_weight %>
+    <%= f.number_field :package_weight %>
   </div>
   <div class="field">
     <%= f.label :safeguard_time %><br>
@@ -25,11 +25,11 @@
   </div>
   <div class="field">
     <%= f.label :outbound_packet_time %><br>
-    <%= f.text_field :outbound_packet_time %>
+    <%= f.datetime_local_field :outbound_packet_time %>
   </div>
   <div class="field">
     <%= f.label :entry_packet_time %><br>
-    <%= f.text_field :entry_packet_time %>
+    <%= f.datetime_local_field :entry_packet_time %>
   </div>
   <div class="field">
     <%= f.label :batch_number %><br>

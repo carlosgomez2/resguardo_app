@@ -12,8 +12,8 @@
  *
  */
 
-// Sprockets bootstrap-sass
-@import "bootstrap-sprockets";
+ // Sprockets bootstrap-sass
+ @import "bootstrap-sprockets";
 
  // Import cerulean variables
  @import "bootswatch/lumen/variables";
@@ -26,3 +26,9 @@
 
  // And finally bootswatch style itself
  @import "bootswatch/lumen/bootswatch";
+
+ // Whatever application styles you have go last
+ @import "base";
+
+ // Font awesome-rails
+ @import "font-awesome";

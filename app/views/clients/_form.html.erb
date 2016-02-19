@@ -1,7 +1,8 @@
 <%= form_for(@client) do |f| %>
+  <!-- Error counter -->
   <% if @client.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+      <h2><%= pluralize(@client.errors.count, "error")%> prohibited this client from being saved:</h2>
 
       <ul>
       <% @client.errors.full_messages.each do |message| %>
@@ -10,68 +11,109 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+  <div class="well bs-component ">
+    <form class="form-horizontal">
+      <fieldset>
+        <legend>Ingrese aquí los datos</legend>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Primer Nombre</label>
+          <div class="col-lg-12">
+            <%= f.text_field :first_name, :class => "form-control", :placeholder => "Primer Nombre" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Segundo Nombre</label>
+          <div class="col-lg-12">
+            <%= f.text_field :second_name, :class => "form-control", :placeholder => "Segundo Nombre" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Primer Apellido</label>
+          <div class="col-lg-12">
+            <%= f.text_field :last_name, :class => "form-control", :placeholder => "Primer Apellido" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Segundo Apellido</label>
+          <div class="col-lg-12">
+            <%= f.text_field :second_last_name, :class => "form-control", :placeholder => "Segundo Apellido" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Teléfono Principal</label>
+          <div class="col-lg-12">
+            <%= f.text_field :principal_phone, :class => "form-control", :placeholder => "Teléfono Principal" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Teléfono Celular</label>
+          <div class="col-lg-12">
+            <%= f.text_field :cellphone, :class => "form-control", :placeholder => "Teléfono Celular" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+          <div class="col-lg-12">
+            <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Fecha de Nacimiento</label>
+          <div class="col-lg-12">
+            <%= f.date_select :birth, start_year: 1915, :class => "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Dirección</label>
+          <div class="col-lg-12">
+            <%= f.text_field :address, :class => "form-control", :placeholder => "Dirección" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Código Postal</label>
+          <div class="col-lg-12">
+            <%= f.text_field :postal_code, :class => "form-control", :placeholder => "Código Postal" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Ciudad</label>
+          <div class="col-lg-12">
+            <%= f.text_field :city, :class => "form-control", :placeholder => "Ciudad" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Estado</label>
+          <div class="col-lg-12">
+            <%= f.text_field :state, :class => "form-control", :placeholder => "Estado" %>
+          </div>
+        </div>
+        <hr />
+        <h2 class="text-center">Datos del Contacto de Emergencia</h2>
+        <hr />
+        <div class="form-group has-warning">
+          <label for="inputEmail" class="col-lg-2 control-label">Nombre del Contacto de Emergencia</label>
+          <div class="col-lg-12">
+            <%= f.text_field :emergency_contact_full_name, :class => "form-control", :placeholder => "Nombre del Contacto de Emergencia" %>
+          </div>
+        </div>
+        <div class="form-group has-warning">
+          <label for="inputEmail" class="col-lg-2 control-label">Dirección del Contacto de Emergencia</label>
+          <div class="col-lg-12">
+            <%= f.text_field :emergency_contact_address, :class => "form-control", :placeholder => "Dirección del Contacto de Emergencia" %>
+          </div>
+        </div>
+        <div class="form-group has-warning">
+          <label for="inputEmail" class="col-lg-2 control-label">Teléfono del Contacto de Emergencia</label>
+          <div class="col-lg-12">
+            <%= f.text_field :emergency_contact_phone, :class => "form-control", :placeholder => "Teléfono del Contacto de Emergencia" %>
+          </div>
+        </div>
+      </fieldset>
+      <br />
+      <div class="actions">
+        <%= f.submit 'Ingresar datos', :class => "btn btn-success" %>
+      </div>
+    </form>
   </div>
-  <div class="field">
-    <%= f.label :second_name %><br>
-    <%= f.text_field :second_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :second_last_name %><br>
-    <%= f.text_field :second_last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :principal_phone %><br>
-    <%= f.text_field :principal_phone %>
-  </div>
-  <div class="field">
-    <%= f.label :cellphone %><br>
-    <%= f.text_field :cellphone %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :birth %><br>
-    <%= f.date_select :birth %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :postal_code %><br>
-    <%= f.text_field :postal_code %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :emergency_contact_full_name %><br>
-    <%= f.text_field :emergency_contact_full_name %>
-  </div>
-  <div class="field">
-    <%= f.label :emergency_contact_address %><br>
-    <%= f.text_field :emergency_contact_address %>
-  </div>
-  <div class="field">
-    <%= f.label :emergency_contact_phone %><br>
-    <%= f.text_field :emergency_contact_phone %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <br />
 <% end %>

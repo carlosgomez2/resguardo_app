@@ -9,6 +9,7 @@ class PackagesController < ApplicationController
   # GET /packages.json
   def index
     @packages = Package.all
+    client = Client.find_by_id(params[:id])
   end
 
   # GET /packages/1

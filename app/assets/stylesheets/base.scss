@@ -1,0 +1,32 @@
+body {
+  padding: 0;
+}
+
+.brand{
+  font-weight: bold;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 2.5rem;
+}
+
+.navbar_links{
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1.6rem
+}
+
+.margin_center{
+  margin: 15px;
+}
+
+.ul_clean{
+  list-style: none;
+}
+
+.heart{
+  color: #ff4136;
+}
+
+.container{
+  width: 90% !important;
+	max-width: 1280px !important;
+	margin: auto !important;
+}
