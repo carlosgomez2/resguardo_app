@@ -13,9 +13,9 @@
   <div class="nav navbar-right margin_center navbar_links">
     <% if user_signed_in? %>
       <%= current_user.email%> |
-      <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+      <%= link_to "Salir", destroy_user_session_path, :method => :delete %>
     <% else %>
-      <%= link_to "Login", new_user_session_path, :class => "btn btn-link" %>
+      <%= link_to "Ingresar", new_user_session_path, :class => "btn btn-link" %>
     <% end %>
   </div>
 </nav>

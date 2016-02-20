@@ -8,8 +8,7 @@ class PackagesController < ApplicationController
   # GET /packages
   # GET /packages.json
   def index
-    @packages = Package.all
-    client = Client.find_by_id(params[:id])
+    @packages = @client.packages.search(params[:search]).paginate(page: params[:page], per_page: 6)
   end
 
   # GET /packages/1
@@ -89,5 +88,9 @@ class PackagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def package_params
       params.require(:package).permit(:package_dimentions, :package_weight, :safeguard_time, :outbound_packet_time, :entry_packet_time, :batch_number, :client_id)
+    end
+
+    def search_params
+      params.require(:search).permit(:package_dimentions, :package_weight, :safeguard_time, :outbound_packet_time, :entry_packet_time, :batch_number)
     end
 end

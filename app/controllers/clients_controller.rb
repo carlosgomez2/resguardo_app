@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all.paginate(page: params[:page], per_page: 9)
+    @clients = Client.search(params[:search]).paginate(page: params[:page], per_page: 6)
   end
 
   # GET /clients/1
@@ -71,5 +71,9 @@ class ClientsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
       params.require(:client).permit(:first_name, :second_name, :last_name, :second_last_name, :principal_phone, :cellphone, :email, :birth, :address, :postal_code, :city, :state, :emergency_contact_full_name, :emergency_contact_address, :emergency_contact_phone)
+    end
+
+    def search_params
+      params.require(:search).permit(:first_name, :second_name, :last_name, :second_last_name, :principal_phone, :cellphone, :email, :birth, :address, :postal_code, :city, :state, :emergency_contact_full_name, :emergency_contact_address, :emergency_contact_phone)
     end
 end

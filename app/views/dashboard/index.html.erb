@@ -3,20 +3,41 @@
   <hr />
   <br />
   <br />
-  <ul class="ul_clean">
-    <h4>
-      Ingrese un nuevo cliente al sistema
-    </h4>
-    <li>
-      <%= link_to "Ingresar cliente", new_client_path, :class => "btn btn-success btn-lg btn-block" %>
-    </li>
-    <br />
-    <h4>
-      Vea los clientes que se han ingresado en el sistema
-    </h4>
-    <li>
-      <%= link_to "Ver clientes", clients_path, :class => "btn btn-primary btn-lg btn-block" %>
-    </li>
-  </ul>
+  <div class="panel panel-default">
+    <div class="panel-heading text-center"><h3>Clientes</h3></div>
+    <div class="panel-body">
+      <ul class="ul_clean">
+        <h4 class="text-center">
+          Añada clientes nuevos
+        </h4>
+        <li class="dashboard_button_container">
+          <%= link_to "Ingresar cliente", new_client_path, :class => "btn btn-success btn-lg btn-block" %>
+        </li>
+        <br />
+        <h4 class="text-center">
+          Vea los clientes que se han agregado al sistema
+        </h4>
+        <li class="dashboard_button_container">
+          <%= link_to "Ver clientes", clients_path, :class => "btn btn-primary btn-lg btn-block" %>
+        </li>
+      </ul>
+    </div>
+  </div>
   <br />
 </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
