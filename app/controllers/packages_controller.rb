@@ -17,10 +17,15 @@ class PackagesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
+
+        barcode_generator
+        # do_png
+
         c = Client.find_by_id(params[:id])
         pdf = PackagePdf.new(@package, c)
         client = c.first_name + "_" + c.last_name + "_" + c.second_last_name
-        send_data pdf.render, filename: "Package_client_#{client}.pdf", disposition: 'inline'
+        # client_name
+        send_data pdf.render, filename: "Detalle_#{client}.pdf", disposition: 'inline'
       end
     end
   end
@@ -38,7 +43,6 @@ class PackagesController < ApplicationController
   # POST /packages.json
   def create
     @package = @client.packages.new(package_params)
-
 
     respond_to do |format|
       if @package.save
@@ -84,6 +88,12 @@ class PackagesController < ApplicationController
     def set_client
       @client = Client.find_by_id(params[:client_id])
     end
+
+    # def do_png
+    #   if png_exist = false
+    #     barcode_generator
+    #   end
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def package_params

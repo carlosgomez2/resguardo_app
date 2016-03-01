@@ -64,10 +64,10 @@
           <td> client.emergency_contact_full_name</td>
           <td> client.emergency_contact_address</td>
           <td> client.emergency_contact_phone</td> -->
-          <td class="text-center"><%= link_to 'Ver cliente', client, :class => "btn btn-info" %></td>
-          <td class="text-center"><%= link_to 'Añadir paquete', new_client_package_path(client_id: client), :class => "btn btn-success" %></td>
-          <td class="text-center"><%= link_to 'Editar cliente', edit_client_path(client), :class => "btn btn-warning" %></td>
-          <td class="text-center"><%= link_to 'Eliminar!', client, method: :delete, data: { confirm: 'Estas seguro? NO se puede deshacer...' }, :class => "btn btn-danger" %></td>
+          <td class="text-center"><%= link_to 'Ver cliente', client, :class => "btn btn-info btn-xs" %></td>
+          <td class="text-center"><%= link_to 'Añadir paquete', new_client_package_path(client_id: client), :class => "btn btn-success btn-xs" %></td>
+          <td class="text-center"><%= link_to 'Editar cliente', edit_client_path(client), :class => "btn btn-warning btn-xs" %></td>
+          <td class="text-center"><%= link_to 'Eliminar!', client, method: :delete, data: { confirm: 'Estas seguro? NO se puede deshacer...' }, :class => "btn btn-danger btn-xs" %></td>
         </tr>
       <% end %>
     </tbody>

@@ -14,6 +14,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # GEMS ADDED
 gem 'devise'
 gem 'barby'
+gem 'chunky_png', '~> 1.3', '>= 1.3.5'
+gem 'rdoc', '~> 4.2', '>= 4.2.2'
 gem 'prawn-rails'
 gem 'puma'
 # STYLES GEMS
