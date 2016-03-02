@@ -65,7 +65,7 @@
   <br />
   <div class="btn-group btn-group-justified">
     <%= link_to 'Regresar a Clientes', clients_path, :class => "btn btn-default" %>
-    <%= link_to 'Editar datos del paquete', edit_package_path(@package), :class => "btn btn-warning" %>
-    <%= link_to 'Descargar Reporte de Ingreso',  package_path(@package.id, format: "pdf"), :class => "btn btn-success" %>
+    <%= link_to 'Editar datos del paquete', edit_client_package_path(:id => @package), :class => "btn btn-warning" %>
+    <%= link_to 'Descargar Reporte de Ingreso',  client_package_path(:id => @package, format: "pdf"), :class => "btn btn-success" %>
   </div>
 </div>

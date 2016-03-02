@@ -9,6 +9,7 @@ class PackagesController < ApplicationController
   # GET /packages.json
   def index
     @packages = @client.packages.search(params[:search]).paginate(page: params[:page], per_page: 6)
+    # @packages = @client.packages.all
   end
 
   # GET /packages/1
@@ -46,11 +47,11 @@ class PackagesController < ApplicationController
 
     respond_to do |format|
       if @package.save
-        format.html { redirect_to @package, notice: 'Package was successfully created.' }
-        format.json { render :show, status: :created, location: @package }
+        format.html { redirect_to client_package_path(:id => @package), notice: 'Package was successfully created.' }
+        # format.json { render :show, status: :created, location: @package }
       else
         format.html { render :new }
-        format.json { render json: @package.errors, status: :unprocessable_entity }
+        # format.json { render json: @package.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -60,11 +61,11 @@ class PackagesController < ApplicationController
   def update
     respond_to do |format|
       if @package.update(package_params)
-        format.html { redirect_to @package, notice: 'Package was successfully updated.' }
-        format.json { render :show, status: :ok, location: @package }
+        format.html { redirect_to client_package_path(:id => @package), notice: 'Package was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @package }
       else
         format.html { render :edit }
-        format.json { render json: @package.errors, status: :unprocessable_entity }
+        # format.json { render json: @package.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -73,7 +74,7 @@ class PackagesController < ApplicationController
   # DELETE /packages/1.json
   def destroy
     @package.destroy
-    redirect_to client_packages_url(@package, :client_id => client)
+    redirect_to client_packages_url
     flash[:notice] = "Paquete eliminado correctamente."
     # respond_to do |format|
     #   format.html { redirect_to client_packages_url(:client_id => client), notice: 'Package was successfully destroyed.' }
@@ -90,12 +91,6 @@ class PackagesController < ApplicationController
     def set_client
       @client = Client.find_by_id(params[:client_id])
     end
-
-    # def do_png
-    #   if png_exist = false
-    #     barcode_generator
-    #   end
-    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def package_params
