@@ -73,10 +73,12 @@ class PackagesController < ApplicationController
   # DELETE /packages/1.json
   def destroy
     @package.destroy
-    respond_to do |format|
-      format.html { redirect_to packages_url, notice: 'Package was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to client_packages_url(@package, :client_id => client)
+    flash[:notice] = "Paquete eliminado correctamente."
+    # respond_to do |format|
+    #   format.html { redirect_to client_packages_url(:client_id => client), notice: 'Package was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private

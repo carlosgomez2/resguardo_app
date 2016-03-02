@@ -5,7 +5,6 @@ class PackagePdf < Prawn::Document
 		# Variables
     @package = package
     @client = c
-		# barcode_128 = barcode
 		# PDF Content Structure
 		header_package
 		content_package
