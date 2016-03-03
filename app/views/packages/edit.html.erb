@@ -1,6 +1,12 @@
-<h1>Editing Package</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', client_package_path(:id => @package) %> |
-<%= link_to 'Back', client_package_path(:client_id => :client) %>
+<div class="container">
+  <h1 class="text-center">Editar paquete</h1>
+  <hr />
+  <%= render 'form' %>
+  <br />
+  <div class="btn-group btn-group-justified">
+    <!-- :clients => :client -->
+    <%= link_to 'Regresar a cliente', client_package_path(@client, :id => @package), :class => "btn btn-default" %>
+    <%= link_to 'Ver paquete', client_package_path(:id => @package), :class => "btn btn-primary" %>
+  </div>
+</div>
