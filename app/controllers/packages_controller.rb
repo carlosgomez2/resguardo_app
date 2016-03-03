@@ -8,8 +8,7 @@ class PackagesController < ApplicationController
   # GET /packages
   # GET /packages.json
   def index
-    @packages = @client.packages.search(params[:search]).paginate(page: params[:page], per_page: 6)
-    # @packages = @client.packages.all
+    @packages = @client.packages.search(params[:search]).paginate(page: params[:page], per_page: 6).order('created_at DESC')
   end
 
   # GET /packages/1
