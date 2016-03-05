@@ -3,3 +3,6 @@
 
 # PACKAGE
   rails g scaffold package package_dimentions:string package_weight:string safeguard_time:string outbound_packet_time:string entry_packet_time:string batch_number:string client:references
+
+# ADD TO PACKAGE
+  -

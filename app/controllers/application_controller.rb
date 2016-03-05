@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def set_client
     @client = Client.find_by_id(params[:id])
   end
