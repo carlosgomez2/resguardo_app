@@ -17,18 +17,6 @@
       <fieldset>
         <legend class="text-center">Ingrese aquí los datos</legend>
         <div class="form-group">
-          <label class="col-lg-6 control-label">Fecha de Entrada del Paquete</label>
-          <div class="col-lg-12">
-            <%= f.date_select :entry_packet, start_year: 2016, end_year: 2100 %>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-lg-6 control-label">Fecha de Salida del Paquete</label>
-          <div class="col-lg-12">
-            <%= f.date_select :outbound_packet, start_year: 2016, end_year: 2100 %>
-          </div>
-        </div>
-        <div class="form-group">
           <label class="col-lg-6 control-label">Dimensiones del paquete</label>
           <div class="col-lg-12">
             <%= f.text_field :package_dimentions, :placeholder => "Ej. 35 * 45" %>
@@ -41,27 +29,27 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="col-lg-6 control-label">Paquete Entregado?</label>
+          <label class="col-lg-6 control-label">Tiempo de Resguardo</label>
           <div class="col-lg-12">
-            <%= f.check_box :delivered_package %>
+            <%= f.text_field :safeguard_time %>
           </div>
         </div>
         <div class="form-group">
-          <label class="col-lg-6 control-label">Tiempo de Resguardo Ilimitado?</label>
+          <label class="col-lg-6 control-label">Tiempo de Entrada del Paquete</label>
           <div class="col-lg-12">
-            <%= f.check_box :safeguard_time %>
+            <%= f.text_field :entry_packet_time, start_year: 2016, end_year: 2100 %>
           </div>
         </div>
         <div class="form-group">
-          <label class="col-lg-6 control-label">Número de Lote</label>
+          <label class="col-lg-6 control-label">Tiempo de Salida del Paquete</label>
+          <div class="col-lg-12">
+            <%= f.text_field :outbound_packet_time, start_year: 2016, end_year: 2100 %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-6 control-label">Numero de Lote</label>
           <div class="col-lg-12">
             <%= f.text_field :batch_number, :placeholder => "Ej. 007" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-lg-6 control-label">Código Identificador</label>
-          <div class="col-lg-12">
-            <%= f.text_field :barcode_packet %>
           </div>
         </div>
         <div class="form-group">

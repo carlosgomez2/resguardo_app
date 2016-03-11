@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Warehouse Inc.</title>
+  <title>Dossier</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,7 +9,7 @@
 <body>
 
 <nav class="navbar navbar-default">
-  <%= link_to 'Warehouse Inc.', root_path, :class => "navbar-brand brand" %>
+  <%= link_to 'Dossier', root_path, :class => "navbar-brand brand" %>
   <div class="nav navbar-right margin_center navbar_links">
     <% if user_signed_in? %>
       <strong><%= current_user.email%></strong> |

@@ -20,7 +20,6 @@
         <th>Dimensiones del paquete</th>
         <th>Fecha de salida del paquete</th>
         <th>Lote de almacenamiento</th>
-        <th>Resguardo Ilimitado?</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -33,10 +32,9 @@
           <td><%= package.package_dimentions %></td>
           <!-- <td> package.package_weight</td>
           <td> package.safeguard_time</td> -->
-          <td><%= package.outbound_packet %></td>
+          <td><%= package.outbound_packet_time %></td>
           <!-- <td>package.entry_packet_time</td> -->
           <td><%= package.batch_number %></td>
-          <td><%= package.safeguard_time %></td>
           <!-- <td> package.client </td> -->
           <td><%= link_to 'Ver detalle', client_package_path(:id => package), :class => "btn btn-info btn-xs" %></td>
           <td><%= link_to 'Editar', edit_client_package_path(:id => package), :class => "btn btn-warning btn-xs" %></td>

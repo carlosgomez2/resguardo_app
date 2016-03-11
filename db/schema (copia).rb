@@ -34,15 +34,13 @@ ActiveRecord::Schema.define(version: 20160216000215) do
   end
 
   create_table "packages", force: :cascade do |t|
-    t.date     "entry_packet"
-    t.date     "outbound_packet"
-    t.string   "package_dimentions",      limit: 255
-    t.string   "package_weight",          limit: 255
-    t.boolean  "delivered_package"
-    t.boolean  "safeguard_time"
-    t.string   "batch_number",            limit: 255
-    t.string   "barcode_packet",          limit: 255
-    t.integer  "client_id",               limit: 4
+    t.string   "package_dimentions",   limit: 255
+    t.string   "package_weight",       limit: 255
+    t.string   "safeguard_time",       limit: 255
+    t.string   "outbound_packet_time", limit: 255
+    t.string   "entry_packet_time",    limit: 255
+    t.string   "batch_number",         limit: 255
+    t.integer  "client_id",            limit: 4
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end

@@ -6,4 +6,4 @@
 
 
 # REFACTOR_PACKAGE
-  rails g scaffold package entry_packet:date outbound_packet:date package_dimentions:string package_weight:string delivered_package:boolean safeguard_time:boolean barcode_packet:string client:references
+  rails g scaffold package entry_packet:date outbound_packet:date package_dimentions:string package_weight:string delivered_package:boolean safeguard_time:boolean batch_number:string barcode_packet:string client:references

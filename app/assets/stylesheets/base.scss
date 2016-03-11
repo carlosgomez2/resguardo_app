@@ -95,3 +95,13 @@ body {
 .bottom_footer{
   bottom: 0;
 }
+
+// ---------- Row Styles ---------- //
+
+.info-package, .emergency-contact{
+  color: white;
+  background-color: MediumOrchid !important;
+}
+.info-package:hover, .emergency-contact:hover{
+    background-color: DarkOrchid !important;
+  }

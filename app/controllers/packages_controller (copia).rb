@@ -46,7 +46,7 @@ class PackagesController < ApplicationController
 
     respond_to do |format|
       if @package.save
-        format.html { redirect_to client_package_path(:id => @package), notice: 'Paquete creado correctamente.' }
+        format.html { redirect_to client_package_path(:id => @package), notice: 'Package was successfully created.' }
         # format.json { render :show, status: :created, location: @package }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class PackagesController < ApplicationController
   def update
     respond_to do |format|
       if @package.update(package_params)
-        format.html { redirect_to client_package_path(:id => @package), notice: 'Paquete actualizado correctamente.' }
+        format.html { redirect_to client_package_path(:id => @package), notice: 'Package was successfully updated.' }
         # format.json { render :show, status: :ok, location: @package }
       else
         format.html { render :edit }
@@ -93,7 +93,7 @@ class PackagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def package_params
-      params.require(:package).permit(:entry_packet, :outbound_packet, :package_dimentions, :package_weight, :delivered_package, :safeguard_time, :batch_number, :barcode_packet, :client_id)
+      params.require(:package).permit(:package_dimentions, :package_weight, :safeguard_time, :outbound_packet_time, :entry_packet_time, :batch_number, :client_id)
     end
 
     def search_params

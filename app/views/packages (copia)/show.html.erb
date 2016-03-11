@@ -49,22 +49,6 @@
     <tbody>
       <tr>
         <td>
-          Entrada del paquete:
-        </td>
-        <td>
-          <%= @package.entry_packet %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          Salida del paquete:
-        </td>
-        <td>
-          <%= @package.outbound_packet %>
-        </td>
-      </tr>
-      <tr>
-        <td>
           Dimensiones del paquete:
         </td>
         <td>
@@ -81,34 +65,34 @@
       </tr>
       <tr>
         <td>
-          Lote de almacenamiento:
+          Tiempo de resguardo:
         </td>
         <td>
-          <%= @package.batch_number %>
+          <%= @package.safeguard_time %>
         </td>
       </tr>
       <tr>
         <td>
-          Código identificador:
+          Entrada del paquete:
         </td>
         <td>
-          <%= @package.barcode_packet %>
-        </td>
-      </tr>
-      <tr class="info-package">
-        <td>
-          Paquete entregado?
-        </td>
-        <td>
-          <%= @package.delivered_package %>
+          <%= @package.entry_packet_time %>
         </td>
       </tr>
-      <tr class="info-package">
+      <tr>
         <td>
-          Resguardo Ilimitado?
+          Salida del paquete:
         </td>
         <td>
-          <%= @package.safeguard_time %>
+          <%= @package.outbound_packet_time %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Lote de almacenamiento:
+        </td>
+        <td>
+          <%= @package.batch_number %>
         </td>
       </tr>
     </tbody>
