@@ -8,6 +8,7 @@ class PackagesController < ApplicationController
   # GET /packages
   # GET /packages.json
   def index
+    # Render packages from Client with a function to paginate in descendence order and display 6 Clients per page, also include "search" function to search into Packages model
     @packages = @client.packages.search(params[:search]).paginate(page: params[:page], per_page: 6).order('created_at DESC')
   end
 
@@ -17,14 +18,13 @@ class PackagesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-
-        barcode_generator
-        # do_png
-
-        c = Client.find_by_id(params[:id])
-        pdf = PackagePdf.new(@package, c)
-        client = c.first_name + "_" + c.last_name + "_" + c.second_last_name
-        # client_name
+        # Stablish the Client
+        set_client
+        # Generate new package object with current package and current client
+        pdf = PackagePdf.new(@package, set_client)
+        # Store client name in a variable called "client"
+        client = set_client.first_name + "_" + set_client.last_name + "_" + set_client.second_last_name
+        # Render PDF data with the name of current Client with disposition inline to display in web browser
         send_data pdf.render, filename: "Detalle_#{client}.pdf", disposition: 'inline'
       end
     end
@@ -33,6 +33,8 @@ class PackagesController < ApplicationController
   # GET /packages/new
   def new
     @package = @client.packages.new
+    # Set barcode packet == to barcode_128
+    @package.barcode_packet = random_code
   end
 
   # GET /packages/1/edit
@@ -46,6 +48,9 @@ class PackagesController < ApplicationController
 
     respond_to do |format|
       if @package.save
+        # Call method to generate a barcode only if package is saved
+        barcode_generator
+        # Respond notice
         format.html { redirect_to client_package_path(:id => @package), notice: 'Paquete creado correctamente.' }
         # format.json { render :show, status: :created, location: @package }
       else

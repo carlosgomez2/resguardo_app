@@ -89,8 +89,9 @@ class PackagePdf < Prawn::Document
 		move_down 25
 
 		# Barcode_128
-		path = @client.first_name + "_" + @client.last_name + "_" + @client.second_last_name
-		image "barcodes/code_#{path}.png", :position => :center
+		# path = @client.first_name + "_" + @client.last_name + "_" + @client.second_last_name
+		path = @package.barcode_packet
+		image "barcodes/#{path}.png", :position => :center
 
 		move_down 240
 	end
