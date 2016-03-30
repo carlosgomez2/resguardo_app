@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :set_client
+  before_action :set_package
 
   # Function to make Secure Random hexadecimal 16 digit codes
   def random_code
@@ -38,6 +39,10 @@ class ApplicationController < ActionController::Base
   # Private method to retrieve current client and pass between controllers
   def set_client
     c = Client.find_by_id(params[:id])
+  end
+
+  def set_package
+    @package = Package.all
   end
 
 end
