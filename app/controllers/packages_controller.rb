@@ -10,6 +10,7 @@ class PackagesController < ApplicationController
   def index
     # Render packages from Client with a function to paginate in descendence order and display 6 Clients per page, also include "search" function to search into Packages model
     @packages = @client.packages.search(params[:search]).paginate(page: params[:page], per_page: 6).order('created_at DESC')
+    # logger.debug "packages variable = #{@packages}"
   end
 
   # GET /packages/1
