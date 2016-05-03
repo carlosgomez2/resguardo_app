@@ -93,7 +93,8 @@ class PackagePdf < Prawn::Document
 		path = @package.barcode_packet
 		image "barcodes/#{path}.png", :position => :center
 
-		move_down 240
+		# Space between table and footer, adjust for more accuracy
+		move_down 160
 	end
 
 	def footer_package
