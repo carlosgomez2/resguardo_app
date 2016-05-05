@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     randomize = SecureRandom.hex(16)
     # Store code generated on barcode_128 in string format
     @barcode_128 = randomize.to_s.downcase
+    return @barcode_128
   end
 
   # Function to generate a PNG barcode and store into /barcodes/ folder
