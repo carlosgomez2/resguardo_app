@@ -98,7 +98,7 @@ class PackagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def package_params
-      params.require(:package).permit(:entry_packet, :outbound_packet, :package_dimentions, :package_weight, :delivered_package, :safeguard_time, :batch_number, :barcode_packet, :client_id)
+      params.require(:package).permit(:reception_method, :reception_guide, :shipping_method, :shipping_guide, :entry_packet, :outbound_packet, :package_dimentions, :package_weight, :delivered_package, :safeguard_time, :batch_number, :barcode_packet, :client_id)
     end
 
     def search_params

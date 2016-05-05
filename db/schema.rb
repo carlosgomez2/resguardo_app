@@ -34,7 +34,11 @@ ActiveRecord::Schema.define(version: 20160216000215) do
   end
 
   create_table "packages", force: :cascade do |t|
+    t.string   "reception_method",        limit: 255
+    t.string   "reception_guide",         limit: 255
     t.date     "entry_packet"
+    t.string   "shipping_method",         limit: 255
+    t.string   "shipping_guide",          limit: 255
     t.date     "outbound_packet"
     t.string   "package_dimentions",      limit: 255
     t.string   "package_weight",          limit: 255
