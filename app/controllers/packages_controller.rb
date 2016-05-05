@@ -46,7 +46,6 @@ class PackagesController < ApplicationController
   # POST /packages.json
   def create
     @package = @client.packages.new(package_params)
-
     respond_to do |format|
       if @package.save
         # Call method to generate a barcode only if package is saved

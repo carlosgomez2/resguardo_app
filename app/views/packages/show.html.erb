@@ -100,7 +100,7 @@
           Paquete entregado?
         </td>
         <td>
-          <%= @package.delivered_package %>
+          <%= @package.delivered_package ? "Entregado" : "Resguardado" %>
         </td>
       </tr>
       <tr class="info-package">
@@ -108,7 +108,7 @@
           Resguardo Ilimitado?
         </td>
         <td>
-          <%= @package.safeguard_time %>
+          <%= @package.safeguard_time ? "Ilimitado" : "Expira" %>
         </td>
       </tr>
     </tbody>

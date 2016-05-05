@@ -67,7 +67,7 @@
           <td><%= package.outbound_packet %></td>
           <!-- <td>package.entry_packet_time</td> -->
           <td><%= package.batch_number %></td>
-          <td><%= package.safeguard_time %></td>
+          <td><%= package.safeguard_time ? "Ilimitado" : "Expira" %></td>
           <!-- <td> package.client </td> -->
           <td><%= link_to 'Ver detalle', client_package_path(:id => package), :class => "btn btn-info btn-xs" %></td>
           <td><%= link_to 'Editar', edit_client_package_path(:id => package), :class => "btn btn-warning btn-xs" %></td>
