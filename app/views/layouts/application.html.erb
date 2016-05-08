@@ -8,6 +8,16 @@
 </head>
 <body>
 
+<% if notice %>
+  <div id="notice_wrapper">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% elsif alert  %>
+  <div id="notice_wrapper">
+    <p id="alert"><%= alert %></p>
+  </div>
+<% end %>
+
 <nav class="navbar navbar-default">
   <%= link_to 'Dossier', root_path, :class => "navbar-brand brand" %>
   <div class="nav navbar-right margin_center navbar_links">

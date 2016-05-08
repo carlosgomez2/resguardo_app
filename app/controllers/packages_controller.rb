@@ -51,7 +51,7 @@ class PackagesController < ApplicationController
         # Call method to generate a barcode only if package is saved
         barcode_generator
         # Respond notice
-        format.html { redirect_to client_package_path(:id => @package), notice: 'Paquete creado correctamente.' }
+        format.html { redirect_to client_package_path(:id => @package), notice: 'Paquete creado.' }
         # format.json { render :show, status: :created, location: @package }
       else
         format.html { render :new }
@@ -65,7 +65,7 @@ class PackagesController < ApplicationController
   def update
     respond_to do |format|
       if @package.update(package_params)
-        format.html { redirect_to client_package_path(:id => @package), notice: 'Paquete actualizado correctamente.' }
+        format.html { redirect_to client_package_path(:id => @package), notice: 'Paquete actualizado.' }
         # format.json { render :show, status: :ok, location: @package }
       else
         format.html { render :edit }
@@ -79,7 +79,7 @@ class PackagesController < ApplicationController
   def destroy
     @package.destroy
     redirect_to client_packages_url
-    flash[:notice] = "Paquete eliminado correctamente."
+    flash[:notice] = "Paquete eliminado."
     # respond_to do |format|
     #   format.html { redirect_to client_packages_url(:client_id => client), notice: 'Package was successfully destroyed.' }
     #   format.json { head :no_content }

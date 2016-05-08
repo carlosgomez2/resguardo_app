@@ -107,7 +107,8 @@ body {
 .info-package:hover, .emergency-contact:hover{
     background-color: DarkOrchid !important;
   }
-td {
+
+.td {
   width: 33%;
 }
 
@@ -118,4 +119,54 @@ td {
 
 .bold{
   font-weight: bold;
+}
+
+.full-width{
+  width: 100% !important;
+}
+
+// ---------- Notice & Alert Styles ---------- //
+
+#notice_wrapper{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(117, 202, 235, 0.85);
+  border-width: 0 1px 4px 1px;
+  border-color: rgba(64, 181, 227, 0.85);
+  p{
+    padding: 2.5rem 0;
+    text-align: center;
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: bolder;
+    color: white;
+    letter-spacing: 1px;
+  }
+}
+
+// ----------- Btn-fa ----------- //
+.btn-fa{
+  font-size: 2.5rem !important;
+  padding: 3px 5px 1px;
+  // padding: 5px;
+  color: white;
+}
+
+
+// ---------- Input styles ---------- //
+// .input-80{
+//   width: 30% !important;
+// }
+.control-label{
+  padding-top: 1.3rem;
+  padding-bottom: 0.5rem;
+}
+.block{
+  width: 100%;
+}
+.kg-padding{
+  padding-left: 15px;
+  padding-right: 15px;
 }

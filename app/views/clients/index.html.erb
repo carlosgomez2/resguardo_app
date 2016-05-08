@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div class="container">
   <h1 class="text-center">Clientes Ingresados</h1>
   <hr />
@@ -12,20 +11,6 @@
         <th class="text-center">Teléfono principal</th>
         <th class="text-center">Email</th>
         <th class="text-center">Acciones</th>
-        <!-- <th>Second name</th>
-        <th>Last name</th>
-        <th>Second last name</th>
-        <th>Principal phone</th>
-        <th>Cellphone</th>
-        <th>Email</th>
-        <th>Birth</th>
-        <th>Address</th>
-        <th>Postal code</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Emergency contact full name</th>
-        <th>Emergency contact address</th>
-        <th>Emergency contact phone</th> -->
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -37,24 +22,26 @@
           <td><%= client.first_name.capitalize %> <%= client.second_name.capitalize %> <%= client.last_name.capitalize %> <%= client.second_last_name.capitalize %></td>
           <td><%= client.principal_phone %></td>
           <td><%= client.email %></td>
-          <!-- <td> client.second_name</td>
-          <td> client.last_name</td>
-          <td> client.second_last_name</td>
-          <td> client.principal_phone</td>
-          <td> client.cellphone</td>
-          <td> client.email</td>
-          <td> client.birth</td>
-          <td> client.address</td>
-          <td> client.postal_code</td>
-          <td> client.city</td>
-          <td> client.state</td>
-          <td> client.emergency_contact_full_name</td>
-          <td> client.emergency_contact_address</td>
-          <td> client.emergency_contact_phone</td> -->
-          <td class="text-center"><%= link_to 'Ver cliente', client, :class => "btn btn-info btn-xs" %></td>
-          <td class="text-center"><%= link_to 'Añadir paquete', new_client_package_path(client_id: client), :class => "btn btn-success btn-xs" %></td>
-          <td class="text-center"><%= link_to 'Editar cliente', edit_client_path(client), :class => "btn btn-warning btn-xs" %></td>
-          <td class="text-center"><%= link_to 'Eliminar!', client, method: :delete, data: { confirm: 'Estas seguro? NO se puede deshacer...' }, :class => "btn btn-danger btn-xs" %></td>
+          <td class="text-center">
+            <%= link_to client, :class => "btn btn-info btn-xs", title: 'Ver cliente' do %>
+              <%= fa_icon "eye", :class => "btn-fa" %>
+            <% end %>
+          </td>
+          <td class="text-center">
+            <%= link_to new_client_package_path(client_id: client), :class => "btn btn-success btn-xs", title: 'Añadir un paquete' do %>
+              <%= fa_icon "plus", :class => "btn-fa"  %>
+            <% end %>
+          </td>
+          <td class="text-center">
+            <%= link_to edit_client_path(client), :class => "btn btn-warning btn-xs", title: 'Editar cliente' do %>
+              <%= fa_icon "edit", :class => "btn-fa" %>
+            <% end %>
+          </td>
+          <td class="text-center">
+            <%= link_to client, method: :delete, data: { confirm: '¿Estas seguro? esta acción no se puede deshacer!' }, :class => "btn btn-danger btn-xs", title: 'Eliminar cliente' do %>
+              <%= fa_icon "trash", :class => "btn-fa" %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
