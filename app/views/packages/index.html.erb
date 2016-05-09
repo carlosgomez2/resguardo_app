@@ -8,7 +8,7 @@
   <div class="container">
     <table class="table table-striped table-hover text-center">
       <thead>
-        <tr class="success">
+        <tr class="info">
           <th class="text-center">
             ID Cliente
           </th>
@@ -81,7 +81,6 @@
   <%= render 'paginate' %>
 
   <div class="btn-group btn-group-justified">
-    <!-- link_to 'Regresar a clientes', clients_path, :class => "btn btn-default btn-lg btn-block" -->
     <%= link_to 'Regresar a cliente', client_path(@client), :class => "btn btn-default btn-lg btn-block" %>
     <%= link_to 'Añadir paquete', new_client_package_path, :class => "btn btn-success btn-lg btn-block" %>
   </div>

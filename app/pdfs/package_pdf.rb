@@ -45,7 +45,7 @@ class PackagePdf < Prawn::Document
       row_6_col_1 = make_cell(:content => "Número de lote:")
 
       row_1_col_2 = make_cell(:content => "#{@package.package_dimentions} cm.", :align => :center)
-      row_2_col_2 = make_cell(:content => "#{@package.package_weight} gramos.", :align => :center)
+      row_2_col_2 = make_cell(:content => "#{@package.package_weight} kg.", :align => :center)
       row_3_col_2 = make_cell(:content => "#{@package.safeguard_time}", :align => :center)
       row_4_col_2 = make_cell(:content => "#{@package.entry_packet}", :align => :center)
       row_5_col_2 = make_cell(:content => "#{@package.outbound_packet}", :align => :center)
@@ -89,7 +89,6 @@ class PackagePdf < Prawn::Document
 		move_down 25
 
 		# Barcode_128
-		# path = @client.first_name + "_" + @client.last_name + "_" + @client.second_last_name
 		path = @package.barcode_packet
 		image "barcodes/#{path}.png", :position => :center
 
