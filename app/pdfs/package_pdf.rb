@@ -5,7 +5,6 @@ class PackagePdf < Prawn::Document
 		# Variables
     @package = package
     @client = c
-		# barcode_128 = barcode
 		# PDF Content Structure
 		header_package
 		content_package
@@ -46,10 +45,10 @@ class PackagePdf < Prawn::Document
       row_6_col_1 = make_cell(:content => "Número de lote:")
 
       row_1_col_2 = make_cell(:content => "#{@package.package_dimentions} cm.", :align => :center)
-      row_2_col_2 = make_cell(:content => "#{@package.package_weight} gramos.", :align => :center)
+      row_2_col_2 = make_cell(:content => "#{@package.package_weight} kg.", :align => :center)
       row_3_col_2 = make_cell(:content => "#{@package.safeguard_time}", :align => :center)
-      row_4_col_2 = make_cell(:content => "#{@package.entry_packet_time}", :align => :center)
-      row_5_col_2 = make_cell(:content => "#{@package.outbound_packet_time}", :align => :center)
+      row_4_col_2 = make_cell(:content => "#{@package.entry_packet}", :align => :center)
+      row_5_col_2 = make_cell(:content => "#{@package.outbound_packet}", :align => :center)
       row_6_col_2 = make_cell(:content => "#{@package.batch_number}", :align => :center)
 
       table([ [ row_1_col_1 , row_1_col_2 ],
@@ -62,7 +61,7 @@ class PackagePdf < Prawn::Document
 
 	def header_package
 		font_size(20) do
-			text "WAREHOUSE INC.", :align => :center, :style => :bold
+			text "DOSSIER", :align => :center, :style => :bold
 			move_down 5
 		end
 		text "Comprobante de resguardo de documentos", :align => :center, :styles => [:italic], :color => 'AAB2BD'
@@ -90,17 +89,18 @@ class PackagePdf < Prawn::Document
 		move_down 25
 
 		# Barcode_128
-		path = @client.first_name + "_" + @client.last_name + "_" + @client.second_last_name
-		image "barcodes/code_#{path}.png", :position => :center
+		path = @package.barcode_packet
+		image "barcodes/#{path}.png", :position => :center
 
-		move_down 240
+		# Space between table and footer, adjust for more accuracy
+		move_down 160
 	end
 
 	def footer_package
 		font_size(10) do
 			transparent(0.1) { stroke_horizontal_rule }
 			move_down 10
-			text "Powered by Warehouse Inc.", :align => :right, :color => 'AAB2BD', :style => :bold
+			text "Powered by Dossier", :align => :right, :color => 'AAB2BD', :style => :bold
 		end
 	end
 

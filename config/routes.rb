@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  
+
   root 'dashboard#index'
   get 'dashboard/index'
 
+#, shallow: true
+
   devise_for :users
-  resources :clients, shallow: true do
+  resources :clients do
     resources :packages
   end
 

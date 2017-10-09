@@ -1,4 +1,4 @@
-enviroment ENV['RACK_ENV'] # enviroment variable
+environment ENV['RACK_ENV'] # enviroment variable
 threads 0,4 # threads from enviroment
 
 workers 3 # workers for user petitions

@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Warehouse Inc.</title>
+  <title>Dossier</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<% if notice %>
+  <div id="notice_wrapper">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% elsif alert  %>
+  <div id="notice_wrapper">
+    <p id="alert"><%= alert %></p>
+  </div>
+<% end %>
+
 <nav class="navbar navbar-default">
-  <%= link_to 'Warehouse Inc.', root_path, :class => "navbar-brand brand" %>
+  <%= link_to 'Dossier', root_path, :class => "navbar-brand brand" %>
   <div class="nav navbar-right margin_center navbar_links">
     <% if user_signed_in? %>
       <strong><%= current_user.email%></strong> |
@@ -20,17 +30,14 @@
   </div>
 </nav>
 
-
-
-
 <%= yield %>
 
-<footer class="bottom">
+</body>
+<footer class="bottom_footer">
   <hr />
   <h6 class="text-center">
     &copy; Derechos Reservados 2016 | <%= fa_icon "code" %> con <%= fa_icon "heart", :class => "heart" %>
- por <strong>Carlos Gómez</strong>
+    por <strong>Carlos Gómez</strong>
   </h6>
 </footer>
-</body>
 </html>

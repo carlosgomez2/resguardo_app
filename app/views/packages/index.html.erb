@@ -1,38 +1,50 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%# notice %></p> -->
 
 <div class="container">
   <h1 class="text-center">Paquetes del cliente</h1>
   <hr />
-  <!-- Search -->
-  <div class="row search">
-    <div class="col-xs-12 pull-right">
-      <%= form_tag client_packages_path, :method => "get" do %>
-      <p>
-        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Localiza cualquier paquete del cliente, puedes buscar: fechas, dimensiones, peso, etc." %>
-      </p>
-      <p class="pull-right">
-        <%= submit_tag "Buscar", class: 'btn btn-default' %>
-      </p>
-      <% end %>
-    </div>
-  </div>
-  <!-- ./Search -->
+  <%= render 'search' %>
   <hr />
+  <div class="container">
+    <table class="table table-striped table-hover text-center">
+      <thead>
+        <tr class="info">
+          <th class="text-center">
+            ID Cliente
+          </th>
+          <th class="text-center">
+            Nombre del Cliente
+          </th>
+          <th class="text-center">
+            Telefono
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="active">
+          <td>
+            <%= @client.id %>
+          </td>
+          <td>
+            <%= @client.first_name.upcase %> <%= @client.second_name.upcase %> <%= @client.last_name.upcase %> <%= @client.second_last_name.upcase %>
+          </td>
+          <td>
+            <%= @client.principal_phone %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <!-- <th>Package dimentions</th>
-        <th>Package weight</th>
-        <th>Safeguard time</th>
-        <th>Outbound packet time</th>
-        <th>Entry packet time</th>
-        <th>Batch number</th>
-        <th>Client</th> -->
         <th>ID Cliente</th>
         <th>Paquete Registrado</th>
         <th>Dimensiones del paquete</th>
         <th>Fecha de salida del paquete</th>
         <th>Lote de almacenamiento</th>
+        <th>Resguardo Ilimitado?</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -43,25 +55,35 @@
           <td><%= package.client.id %></td>
           <td><%= package.created_at %></td>
           <td><%= package.package_dimentions %></td>
-          <!-- <td> package.package_weight</td>
-          <td> package.safeguard_time</td> -->
-          <td><%= package.outbound_packet_time %></td>
-          <!-- <td>package.entry_packet_time</td> -->
+          <td><%= package.outbound_packet %></td>
           <td><%= package.batch_number %></td>
-          <!-- <td> package.client </td> -->
-          <td><%= link_to 'Ver detalle', package, :class => "btn btn-info btn-xs" %></td>
-          <td><%= link_to 'Editar', edit_package_path(package), :class => "btn btn-warning btn-xs" %></td>
-          <td><%= link_to 'Eliminar!', package, method: :delete, data: { confirm: 'Estas seguro? NO se puede deshacer...' }, :class => "btn btn-danger btn-xs" %></td>
+          <td><%= package.safeguard_time ? "Ilimitado" : "Expira" %></td>
+          <td>
+            <%= link_to client_package_path(:id => package), :class => "btn btn-info btn-xs" do %>
+              <%= fa_icon "eye", :class => "btn-fa" %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_client_package_path(:id => package), :class => "btn btn-warning btn-xs" do %>
+              <%= fa_icon "edit", :class => "btn-fa" %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to client_package_path(:id => package), method: :delete, data: { confirm: 'Estas seguro? NO se puede deshacer...' }, :class => "btn btn-danger btn-xs" do %>
+              <%= fa_icon "trash", :class => "btn-fa" %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <br />
-    <div class="text-center">
-      <%= will_paginate @packages, previous_label: "Anterior", next_label: "Siguiente", renderer: BootstrapPagination::Rails %>
-    </div>
-  <br />
+  <%= render 'paginate' %>
 
-  <%= link_to 'Regresar a clientes', clients_path, :class => "btn btn-default btn-lg btn-block" %>
+  <div class="btn-group btn-group-justified">
+    <%= link_to 'Regresar a cliente', client_path(@client), :class => "btn btn-default btn-lg btn-block" %>
+    <%= link_to 'Añadir paquete', new_client_package_path, :class => "btn btn-success btn-lg btn-block" %>
+  </div>
+
+
 </div>
