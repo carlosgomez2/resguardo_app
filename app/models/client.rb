@@ -1,6 +1,8 @@
 class Client < ActiveRecord::Base
   has_many :packages, dependent: :destroy
 
+  accepts_nested_attributes_for :packages
+
   # Search
   def self.search(search)
 		key = "%#{search}%"
@@ -10,5 +12,5 @@ class Client < ActiveRecord::Base
       all
     end
   end
-  
+
 end

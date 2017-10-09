@@ -17,7 +17,7 @@ gem 'barby'
 gem 'chunky_png', '~> 1.3', '>= 1.3.5'
 gem 'rdoc', '~> 4.2', '>= 4.2.2'
 gem 'prawn-rails'
-gem 'puma'
+gem 'puma', '~> 3.9.1'
 # STYLES GEMS
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
