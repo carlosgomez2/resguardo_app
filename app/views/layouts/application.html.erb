@@ -19,14 +19,16 @@
 <% end %>
 
 <nav class="navbar navbar-default">
-  <%= link_to 'Dossier', root_path, :class => "navbar-brand brand" %>
-  <div class="nav navbar-right margin_center navbar_links">
-    <% if user_signed_in? %>
-      <strong><%= current_user.email%></strong> |
-      <strong><%= link_to "Salir", destroy_user_session_path, :method => :delete %></strong>
-    <% else %>
-      <%= link_to "Ingresar", new_user_session_path, :class => "btn btn-link" %>
-    <% end %>
+  <div class="container" style="width: 800px;">
+    <%= link_to 'Dossier', root_path, :class => "navbar-brand brand" %>
+    <div class="nav navbar-right margin_center navbar_links">
+      <% if user_signed_in? %>
+        <strong><%= current_user.email%></strong> |
+        <strong><%= link_to "Salir", destroy_user_session_path, :method => :delete %></strong>
+      <% else %>
+        <%= link_to "Ingresar", new_user_session_path, :class => "btn btn-link" %>
+      <% end %>
+    </div>
   </div>
 </nav>
 

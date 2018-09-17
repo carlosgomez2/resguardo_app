@@ -25,6 +25,8 @@ gem 'bootswatch-rails'
 gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap'
 
+gem 'faker', '~> 1.9', '>= 1.9.1'
+
 group :development, :test do
   gem 'byebug'
   gem "better_errors"
