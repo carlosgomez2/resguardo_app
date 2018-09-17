@@ -1,5 +1,5 @@
 # Dossier App
 
-![](dashboard.png)
+![](frame-dashboard.png)
 
-![](clients.png)
+![](frame-clients.png)
